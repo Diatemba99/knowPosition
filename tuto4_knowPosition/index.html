@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Appuyer sur ce button pour connaitre votre position
+    </h1>
+  
+   <button onclick="posi()">Cliquez</button>
+   <div id="demo"></div>
+
+<script>
+    var x = document.getElementById("demo");
+
+    function posi() 
+    {
+       if (navigator.geolocation) 
+       {
+           navigator.geolocation.getCurrentPosition(ShowPosition);
+       }  
+       else
+       {
+           x.innerHTML = "votre navigateur ne supporte pas la geolocalisation";
+       }  
+    }
+
+    function ShowPosition()
+    {
+      x.innerHTML = "Lattitude :" + position.coords.latitude + "<br> Longitude:" + position.coords.longitude;    
+    }
+</script>
+</body>
+</html>
